@@ -8,7 +8,6 @@ metadata:
   region: us-east-1
 
 managedNodeGroups:
-  - name: simple-test
-    instanceType: [ "m5.large","c3.large","c4.large","c5.large","c5d.large" ]
-    desiredCapacity: 3
-    spot: true
+  - name: test-01
+    instanceType: t3.micro
+    desiredCapacity: 1
