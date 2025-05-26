@@ -1,8 +1,8 @@
 apiVersion: v1
-kind : pod
+kind : Pod
 metadata: 
   name: nginx
-  Namespace: techbasehub
+  namespace: techbasehub
 spec:
   containers:
   - name: nginx
