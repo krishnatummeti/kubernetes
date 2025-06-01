@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-configmap-env
+spec:
+  containers:
+  - name: app-container
+    image: busybox
+    command: ["sleep 3600"]
+    envFrom:
+    - configMapRef:
+        name: app-configmap
