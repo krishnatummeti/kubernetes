@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-nginx-annotated
+  annotations:
+    purpose: "demo"
+    owner: "techbasehub"
+    env: "dev"
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "150m"
+      limits:
+        memory: "70Mi"
+        cpu: "250m"
+    ports:
+    - containerPort: 80 
+
