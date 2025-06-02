@@ -1,0 +1,30 @@
+# nginx-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    app: nginx
+    env: dev
+    version: "1.0.0"           # Label to identify this pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx        # Use official nginx image
+    ports:
+    - containerPort: 80 # The port nginx listens on
+---
+# nginx-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  type: ClusterIP        # Default type; exposes inside cluster only
+  selector:
+    app: nginx
+    env: dev
+    version: "1.0.0"            # Select pods with label app=nginx
+  ports:
+  - port: 80             # Port exposed inside the cluster
+    targetPort: 80       # Container port where nginx listens
