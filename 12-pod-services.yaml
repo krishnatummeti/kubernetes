@@ -10,9 +10,9 @@ metadata:
 spec:
   containers:
   - name: nginx
-    image: nginx        # Use official nginx image
+    image: nginx              # Use official nginx image
     ports:
-    - containerPort: 80 # The port nginx listens on
+    - containerPort: 80       # The port nginx listens on
 ---
 # nginx-service.yaml
 apiVersion: v1
@@ -20,11 +20,12 @@ kind: Service
 metadata:
   name: nginx-service
 spec:
-  type: ClusterIP        # Default type; exposes inside cluster only
+  type: NodePort              # Change from ClusterIP to NodePort
   selector:
     app: nginx
     env: dev
-    version: "1.0.0"            # Select pods with label app=nginx
+    version: "1.0.0"          # Match pod labels
   ports:
-  - port: 80             # Port exposed inside the cluster
-    targetPort: 80       # Container port where nginx listens
+  - port: 80                  # Service port
+    targetPort: 80            # Pod/container port
+    nodePort: 30080           # External port on the node (must be in 30000–32767)
