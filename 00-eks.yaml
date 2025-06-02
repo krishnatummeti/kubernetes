@@ -8,7 +8,7 @@ metadata:
   region: us-east-1
 
 managedNodeGroups:
-  - name: test-01
+  - name: techbasehub-server
     instanceTypes: ["m5.large", "c3.large","c4.large","c5.large"]
     desiredCapacity: 3
     spot: true

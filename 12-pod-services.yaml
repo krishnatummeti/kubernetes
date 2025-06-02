@@ -1,31 +1,28 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: nginx-non-prod
+  name: nginx
 spec:
   type: NodePort
   selector: # labels are used as selectors
     project: services
-    component: backend
+    component: frontend
     environment: dev
     version: "1.0.0"
-    demo: np
   ports:
   - protocol: TCP
     port: 80 # service port
     targetPort: 80
-    nodePort: 30007
 ---
 kind: Pod
 apiVersion: v1
 metadata:
-  name: non-prod-services
+  name: nginx-services
   labels:
     project: services
-    component: backend
+    component: frontend
     environment: dev
     version: "1.0.0"
-    demo: np
 spec:
   containers:
   - name: nginx
