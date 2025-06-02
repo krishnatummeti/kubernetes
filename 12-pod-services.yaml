@@ -1,31 +1,33 @@
-# nginx-pod.yaml
+kind: Service
 apiVersion: v1
-kind: Pod
 metadata:
-  name: nginx-pod
+  name: nginx-non-prod
+spec:
+  type: NodePort
+  selector: # labels are used as selectors
+    project: services
+    component: backend
+    environment: dev
+    version: "1.0.0"
+    demo: np
+  ports:
+  - protocol: TCP
+    port: 80 # service port
+    targetPort: 80
+    nodePort: 30007
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: non-prod-services
   labels:
-    app: nginx
-    env: dev
-    version: "1.0.0"           # Label to identify this pod
+    project: services
+    component: backend
+    environment: dev
+    version: "1.0.0"
+    demo: np
 spec:
   containers:
   - name: nginx
-    image: nginx              # Use official nginx image
-    ports:
-    - containerPort: 80       # The port nginx listens on
----
-# nginx-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-service
-spec:
-  type: NodePort              # Change from ClusterIP to NodePort
-  selector:
-    app: nginx
-    env: dev
-    version: "1.0.0"          # Match pod labels
-  ports:
-  - port: 80                  # Service port
-    targetPort: 80            # Pod/container port
-    nodePort: 30080           # External port on the node (must be in 30000–32767)
+    image: nginx
+    
