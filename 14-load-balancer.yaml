@@ -1,9 +1,9 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: nginx
+  name: nginx-LB
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector: # labels are used as selectors
     project: services
     component: frontend
@@ -18,7 +18,7 @@ spec:
 kind: Pod
 apiVersion: v1
 metadata:
-  name: nginx-services
+  name: nginx-LB
   labels:
     project: services
     component: frontend
