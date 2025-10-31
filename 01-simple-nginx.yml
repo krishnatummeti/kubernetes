@@ -1,12 +1,12 @@
 # This is Simple nginx pod taml
 apiVersion: v1
-kind: pod
+kind: Pod
 metadata:
   name: nginx-pod
-  lable:
+  labels:
     env: Dev
     type: frontend
-Spec:
+spec:
   containers:
   - name: nginx-container
     image: nginx:latest
