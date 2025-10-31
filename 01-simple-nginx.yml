@@ -1,0 +1,14 @@
+# This is Simple nginx pod taml
+apiVersion: v1
+kind: pod
+metadata:
+  name: nginx-pod
+  lable:
+    env: Dev
+    type: frontend
+Spec:
+  containers:
+  - name: nginx-container
+    image: nginx:latest
+    ports:
+    - containerPort: 80
