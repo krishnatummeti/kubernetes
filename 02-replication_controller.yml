@@ -1,0 +1,21 @@
+# This is the ReplicationController yaml file
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nginx
+  labels: 
+    env: Dev
+spec:
+  replicas: 3
+  metadata:
+    name: nginx-pod
+    labels:
+      env: Dev
+      type: frontend
+  spec:
+    containers:
+    - name: nginx-container
+      image: nginx:latest
+      ports:
+      - containerPort: 80
