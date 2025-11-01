@@ -7,7 +7,6 @@ metadata:
   labels:
     env: Dev
 spec:
-  type: clusterIP
   ports:
     - port: 80
       targetPort: 80
