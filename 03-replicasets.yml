@@ -8,6 +8,10 @@ metadata:
     env: Dev
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+    env: Dev
+    type: frontend
   template:
     metadata:
       name: nginx-pod
