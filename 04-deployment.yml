@@ -1,0 +1,30 @@
+# This is the Deployment yaml file
+
+# GROUP:      apps
+# KIND:       ReplicaSet
+# VERSION:    v1
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+  labels: 
+    env: Dev
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      env: Dev
+      type: frontend
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        env: Dev
+        type: frontend
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
