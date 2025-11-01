@@ -1,6 +1,11 @@
 # This is the ReplicaSet yaml file
 
-apiVersion: v1
+# GROUP:      apps
+# KIND:       ReplicaSet
+# VERSION:    v1
+
+
+apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: nginx-rs
