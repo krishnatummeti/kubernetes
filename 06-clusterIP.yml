@@ -1,0 +1,15 @@
+# This is clusterIP yaml file
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+    env: Dev
+spec:
+  type: clusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    env: Dev
