@@ -1,7 +1,7 @@
 # This is the ReplicaSets yaml file
 
 apiVersion: v1
-kind: ReplicaSets
+kind: ReplicaSet
 metadata:
   name: nginx-rs
   labels: 
