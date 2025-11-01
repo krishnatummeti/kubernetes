@@ -1,0 +1,22 @@
+# This is the ReplicaSets yaml file
+
+apiVersion: v1
+kind: ReplicaSets
+metadata:
+  name: nginx-rs
+  labels: 
+    env: Dev
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        env: Dev
+        type: frontend
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
