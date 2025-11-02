@@ -1,0 +1,17 @@
+# This is LoadBalancer yaml file
+
+# This is clusterIP yaml file
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service-loadbalancer
+  labels:
+    env: Dev
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    env: Dev
