@@ -1,0 +1,6 @@
+# This is Namespace yaml file
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: Dev
