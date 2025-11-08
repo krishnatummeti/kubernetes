@@ -18,5 +18,5 @@ spec:
   - name: init-myservice
     image: busybox:1.28
     command: ['sh' , '-c']
-    args: ['until nslookup myservice.default.svc.cluster.local ; do echo this service is running fine ; sleep 10 ; done']
+    args: ['until nslookup myservice.default.svc.cluster.local ; do echo waiting for the service up and running ; sleep 10 ; done']
   
