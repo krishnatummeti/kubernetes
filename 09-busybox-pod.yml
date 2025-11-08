@@ -1,14 +1,22 @@
-# This is the busybox pod yaml file
+# This is the busybox pod yaml file and initContainers 
 
 apiVersion: v1
 kind: Pod
 metadata:
-  name: busybox-pod
+  name: busybox-pod # myapp
   labels:
+    name: myapp-pod
 spec:
   containers:
-  - name: busybox-container
+  - name: busybox-container # myapp-container
     image: busybox:1.28
+    command: ['sh' , '-c' , 'echo this is pod is running and && sleep 3600' ] 
     env:
-    - name: busybox
+    - name: FiRSTNAME
       value: "krishna"
+  initContainers:
+  - name: init-myservice
+    image: busybox:1.28
+    command: ['sh' , '-c']
+    args: ['until nslookup myservice.default.svc.cluster.local ; do echo this service is running fine ; sleep 10 ; done']
+  
