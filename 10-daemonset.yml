@@ -1,0 +1,23 @@
+# This file is DaemonSet yaml file
+
+apiVersion: apps/v1
+kind: DaemonSet
+metadata: 
+  name: nginx-ds
+  lables:
+    env: app
+spec:
+  template:
+    metadata:
+      name: ngnix 
+      labels:
+        env: app
+    spec:
+      container:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+  selector:
+    matchLabels:
+      env: app
