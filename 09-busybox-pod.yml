@@ -1,0 +1,14 @@
+# This is the busybox pod yaml file
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-pod
+  labels:
+spec:
+  containers:
+  - name: busybox-container
+    image: busybox:1.28
+    env:
+    - name: busybox
+      value: "krishna"
