@@ -6,6 +6,7 @@ metadata:
   labels:
     run: nginx
     tire: frontend
+    env: Dev
     type: app1
   name: nginx
   namespace: default
