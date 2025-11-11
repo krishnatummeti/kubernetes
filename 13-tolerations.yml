@@ -6,10 +6,10 @@ metadata:
   name: nginx-ta
 spec:
   tolerations:
-    key: "gpu"
-    operator: "Equal"
-    value: "true"
-    effect: "NoSchedule"
+    - key: "gpu"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
   containers:
   - image: nginx
     name: nginx-ta
