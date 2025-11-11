@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx-ta
+  name: nginx-ta
+spec:
+  tolerations:
+    key: "gpu"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
+  containers:
+  - image: nginx
+    name: nginx-ta
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
