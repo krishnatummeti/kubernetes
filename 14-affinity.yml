@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    run: nginx-ta
-  name: nginx-ta
+    run: nginx-affinity
+  name: nginx-affinity
 spec:
   containers:
   - image: nginx
