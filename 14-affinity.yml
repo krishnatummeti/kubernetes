@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx-ta
+  name: nginx-ta
+spec:
+  containers:
+  - image: nginx
+    name: nginx-ta
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  affinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: disktype
+            operator: In
+            values:
+            - ssd
+status: {}
