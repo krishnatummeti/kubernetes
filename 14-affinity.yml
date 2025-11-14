@@ -12,6 +12,7 @@ spec:
   dnsPolicy: ClusterFirst
   restartPolicy: Always
   affinity:
+    nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
