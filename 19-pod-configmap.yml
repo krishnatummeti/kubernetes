@@ -4,8 +4,8 @@ metadata:
   name: nginx-configmap
 spec:
   container:
-    - name: nginx-configmap
-      image: nginx:latest
+    - name: nginx
+      image: nginx
       envfrom:
         - configMapRef:
-          name: my-configmap
+            name: my-configmap
