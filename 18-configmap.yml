@@ -1,0 +1,10 @@
+# This is the configmap file
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-configmap
+spec:
+  data:
+    user: Dev
+    access_level: "1"
