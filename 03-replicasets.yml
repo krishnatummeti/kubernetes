@@ -9,6 +9,7 @@ metadata:
   name: nginx-rs
   labels: 
     env: Dev
+    type: frontend
 spec:
   replicas: 3
   selector:

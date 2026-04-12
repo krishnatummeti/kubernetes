@@ -10,6 +10,7 @@ metadata:
   name: nginx-deploy
   labels: 
     env: Dev
+    type: frontend
 spec:
   replicas: 4
   selector:
