@@ -1,15 +1,16 @@
-# This is Simple nginx pod taml
+# This is Simple nginx pod yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-pod
+  name: ngnix-app-pod
   labels:
     env: Dev
     type: frontend
-spec:
+spce:
   containers:
-  - name: nginx-container
-    image: nginx:latest
+  - name: ngnix-app-container
+    labels:
+      env: Dev
+      type: frontend
     ports:
     - containerPort: 80
-
