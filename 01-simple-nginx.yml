@@ -9,6 +9,6 @@ metadata:
 spec:
   containers:
   - name: ngnix-app1-container
-    image: ngnix:latest
+    image: nginx:latest
     ports:
     - containerPort: 80
