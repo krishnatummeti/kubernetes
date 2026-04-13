@@ -9,6 +9,7 @@ metadata:
 spec:
   containers:
   - name: ngnix-app-container
+    image: ngnix:latest
     labels:
       env: Dev
       type: frontend
