@@ -11,4 +11,4 @@ spec:
   - name: ngnix-app1-container
     image: ngnix:latest
     ports:
-    containerPort: 80
+    - containerPort: 80
