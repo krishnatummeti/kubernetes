@@ -6,7 +6,7 @@ metadata:
   labels:
     env: Dev
     type: frontend
-spce:
+spec:
   containers:
   - name: ngnix-app-container
     labels:
