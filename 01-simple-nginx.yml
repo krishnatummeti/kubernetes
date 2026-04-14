@@ -1,14 +1,15 @@
-# This is simple nginx pod yaml file
+# This is a simple pod yml file
+
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-app-pod
+  name: nginx-pod
   labels:
     env: Dev
     type: frontend
 spec:
-  containers: 
-  - name: ginx-app-container
+  containers:
+  - name: nginx-container
     image: nginx:latest
     ports:
     - containerPort: 80
