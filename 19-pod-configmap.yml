@@ -1,11 +1,23 @@
 apiVersion: v1
 kind: Pod
-metadata: 
-  name: nginx-configmap
+
+metadata:
+  name: my-pod
+
 spec:
   containers:
-    - name: nginx
-      image: nginx
-      envFrom:
-        - configMapRef:
-            name: my-configmap
+  - name: nginx
+    image: nginx
+
+    env:
+    - name: APP_NAME
+      valueFrom:
+        configMapKeyRef:
+          name: webapp-config
+          key: APP_NAME
+
+    - name: ENVIRONMENT
+      valueFrom:
+        configMapKeyRef:
+          name: webapp-config
+          key: ENVIRONMENT
