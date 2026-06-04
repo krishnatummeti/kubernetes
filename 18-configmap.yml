@@ -1,9 +1,43 @@
-# This is the configmap file
+# This is the configMap yaml file
+# --> how to check the version
+# [root@kubernetes-master ~]# kubectl explain configMap
+# KIND:       ConfigMap
+# VERSION:    v1
+
+
 
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: my-configmap
+  # Name of the ConfigMap
+  name: webapp-config
+
+# Configuration data stored in the ConfigMap
 data:
-    user: Dev
-    access_level: "1"
+  # Simple key-value pairs
+  # These can be used as environment variables inside a Pod
+  APP_NAME: "MyWebApp"
+  ENVIRONMENT: "production"
+  SERVER_PORT: "8080"
+
+  # File-like configuration
+  # The "|" symbol preserves multiline content
+  # Kubernetes can mount this as a file inside the container
+
+  application.properties: |
+    # Application name
+    app.name=MyWebApp
+
+    # Application environment
+    app.environment=production
+
+    # Port on which the application runs
+    server.port=8080
+
+  # Another configuration file
+  # Useful for logging settings
+
+  logging.properties: |
+    log.level=INFO
+    log.file=/var/log/webapp.log
+    log.rotation=true

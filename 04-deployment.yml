@@ -1,8 +1,10 @@
 # This is the Deployment yaml file
-
+# --> how to check the version and group
+# [root@kubernetes-master ~]# kubectl explain deployments 
 # GROUP:      apps
-# KIND:       ReplicaSet
+# KIND:       Deployment
 # VERSION:    v1
+
 
 
 apiVersion: apps/v1
